@@ -46,4 +46,18 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
+	public bool HasKey(int id)
+	{
+		for (int i = 0; i < _items.Count; i++)
+		{
+			if (_items[i] is AccesItem)
+			{
+				AccesItem it = (AccesItem) _items[i];
+				if (it.Door == id)
+				{
+					return true;
+				}
+			}
+		}
+	}
 }

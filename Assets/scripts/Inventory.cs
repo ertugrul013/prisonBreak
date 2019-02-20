@@ -1,15 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+	//instance 
 	public static Inventory instance;
 	
-	private int _totalWeight;
-	private int _maxWeight;
-
 	private List<Item> _items;
+	public int maxWeight = 10;
+	private int _totalWeight;
 
 	private void Awake()
 	{
@@ -26,38 +28,43 @@ public class Inventory : MonoBehaviour
 
 	public bool AddItem(Item item)
 	{
-		if (_totalWeight + item.Weight > _maxWeight)
+		//if the total weight is lower than max weight continue
+		if(_totalWeight + item.Weight > maxWeight)
 		{
 			return false;
 		}
-		else
-		{
-			_items.Add(item);
-			_totalWeight += item.Weight;
-			return true;
-		}
+		_items.Add(item);
+		_totalWeight += item.Weight;
+		return true;
 	}
-
+	
+	/// <summary>
+	/// removes item's from the inventory.
+	/// only if removing is successful than the weight will decrease
+	/// </summary>
+	/// <param itemobject="item"></param>
 	public void RemoveItem(Item item)
 	{
 		if (_items.Remove(item))
 		{
 			_totalWeight -= item.Weight;
-		}
+		}	
 	}
 
-	public bool HasKey(int id)
+	public bool checkKey(int _id)
 	{
 		for (int i = 0; i < _items.Count; i++)
 		{
 			if (_items[i] is AccesItem)
 			{
-				AccesItem it = (AccesItem) _items[i];
-				if (it.Door == id)
+				var it = (AccesItem) _items[i];
+				if (it.id == _id)
 				{
 					return true;
 				}
 			}
 		}
+		return false;
 	}
+
 }

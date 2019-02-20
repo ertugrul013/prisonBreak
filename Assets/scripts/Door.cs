@@ -2,41 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
+    public int id;
+    public bool open = false;
+    private float initialRotation;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        initialRotation = transform.rotation.eulerAngles.y;
+    }
 
-	public int Id;
-	private bool IsOpen;
-	private float InitRotation;
+    // Update is called once per frame
+    void Update()
+    {
+        if (open && transform.rotation.eulerAngles.y < initialRotation + 80)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, initialRotation + 80, 0), 5);
+        } else if (!open && transform.rotation.eulerAngles.y > initialRotation)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, initialRotation, 0), 5);
+        }
+        
+    }
 
-	// Use this for initialization
-	void Start ()
-	{
-		InitRotation = transform.rotation.eulerAngles.y;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (IsOpen && transform.rotation.eulerAngles.y < InitRotation + 80)
-		{
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,InitRotation +80 , 0), 5 );
-		}
-		else if (!IsOpen && transform.rotation.eulerAngles.y > InitRotation)
-		{
-			transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0,InitRotation,0),5 );
-		}
-	}
+    public void Open()
+    {
+        if (id == -1  || Inventory.instance.HasKey(id))
+        {
+            open = !open;
+        }
+    }
 
-	public void Open()
-	{
-		if (Id == -1 || Inventory.instance.HasKey(Id))
-		{
-			IsOpen = !IsOpen;
-		}	
-	}
-
-	public void Action()
-	{
-		Open();
-	}
+    public void Action()
+    {
+        Open();
+    }
 }

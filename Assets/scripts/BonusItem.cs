@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Policy;
 using UnityEngine;
 
 public class BonusItem : Item
 {
+    public int points;
 
-    public int Points;
-
-    public BonusItem(string name, int weight, int points) : base(name, weight)
+    public BonusItem(string name, float weight, int points) : base(name, weight)
     {
-        this.Points = points;
+        this.points = points;
     }
 }

@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class Item
 {
-    public string Name;
-    public int Weight;
+    public string name;
+    public float weight;
 
-    public Item(string name, int weight)
+    public Item(string name, float weight)
     {
-        this.Name = name;
-        this.Weight = weight;
+        this.name = name;
+        this.weight = weight;
     }
 }

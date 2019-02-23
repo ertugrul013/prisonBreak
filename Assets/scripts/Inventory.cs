@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 	//instance 
 	public static Inventory instance;
 	
-	private List<Item> _items;
+	private List<Item>  _items;
 	public int maxWeight = 10;
 	private int _totalWeight;
 
@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
 	{
 		if (instance == null)
 		{
+			
+			Debug.Log(_items.Count);
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
 		}
@@ -28,11 +30,13 @@ public class Inventory : MonoBehaviour
 
 	public bool AddItem(Item item)
 	{
+		Debug.Log(item);
 		//if the total weight is lower than max weight continue
 		if(_totalWeight + item.Weight > maxWeight)
 		{
 			return false;
 		}
+		Debug.Log(item);
 		_items.Add(item);
 		_totalWeight += item.Weight;
 		return true;

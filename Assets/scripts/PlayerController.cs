@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
     private void EventHandler()
     {
         //inventory visibility
-        if (Input.GetButtonDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            
+          //TODO make a UI visibilty switcher
         }
         //interact
         else if(Input.GetMouseButtonDown(0))

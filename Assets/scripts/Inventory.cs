@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 	//instance 
 	public static Inventory instance;
 	
-	private List<Item>  _items;
+	private List<Item>  _items = new List<Item>();
 	public int maxWeight = 10;
 	private int _totalWeight;
 

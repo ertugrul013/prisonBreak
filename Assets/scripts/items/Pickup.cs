@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Pickup: MonoBehaviour, IInteractable
+public abstract class Pickup : MonoBehaviour, IInteractable
 {
-
 	public string name;
 	public int weight;
 

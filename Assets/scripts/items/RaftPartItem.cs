@@ -1,7 +1,21 @@
-
-public class RaftItem : Item
+/// <summary>
+/// Co-Producer:
+///     Puck Onnekes
+/// </summary>
+public class RaftPartItem : Item
 {
-       public RaftItem(string objName, int Weight) : base(objName, Weight)
+       public enum TypeOfPart
        {
+           wood,
+           rope,
+           flag
+       }
+
+       public TypeOfPart Part;
+       public string credit;
+       public RaftPartItem(string objName, int Weight,string credit, TypeOfPart typeOfPart) : base(objName, Weight)
+       {
+           this.credit = credit;
+           this.Part = typeOfPart;
        }
 }

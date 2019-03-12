@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Inventory : MonoBehaviour
 {
 	//instance 
 	public static Inventory instance;
-	
-	private List<Item>  _items = new List<Item>();
+	public static int amountOfRaftItems;
+	public List<Item> _items = new List<Item>();
 	public int maxWeight = 10;
 	private int _totalWeight;
 
@@ -21,6 +22,7 @@ public class Inventory : MonoBehaviour
 			Debug.Log(_items.Count);
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
+		
 		}
 		else
 		{
@@ -28,7 +30,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	public bool AddItem(Item item)
+	public bool AddItem(Item item)	
 	{
 		Debug.Log(item);
 		//if the total weight is lower than max weight continue

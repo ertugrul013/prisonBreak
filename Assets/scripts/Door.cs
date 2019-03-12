@@ -8,7 +8,7 @@ public class Door : MonoBehaviour, IInteractable
     public int doorId;
     public bool isOpen;
     private float initRotation;
-
+   
     private void Start()
     {
         initRotation = transform.rotation.eulerAngles.y;

@@ -179,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1029467997
 GameObject:
@@ -286,7 +286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408143033
 GameObject:
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 1722881535}
   - component: {fileID: 1722881534}
   m_Layer: 0
-  m_Name: WorldGenaration
+  m_Name: _WorldGenaration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,14 +415,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _seed: 3
   _perlinSeed: 0
+  worldSize: 513
   maxHeight: 500
   mainTerrain: {fileID: 2106111831}
   Passes:
   - name: "Low \x13Pass"
     mapSprite: {fileID: 0}
-    detail: 3
-    height: 8
+    detail: 7.5
+    height: 30
     PassType: 0
+  - name: "High \x10Pass"
+    mapSprite: {fileID: 0}
+    detail: 50
+    height: 1
+    PassType: 0
+  AmountOfRaftParts: 10
+  raftPart: {fileID: 8458401932286815673, guid: 8aa7eb5d907f8d8468f8b4bd7869fe8b,
+    type: 3}
 --- !u!4 &1722881535
 Transform:
   m_ObjectHideFlags: 0
@@ -435,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886539031
 GameObject:
@@ -541,7 +550,7 @@ Transform:
   m_LocalScale: {x: 0.045931, y: 2.2002, z: 2.1803}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916809705
 GameObject:
@@ -851,7 +860,7 @@ Transform:
   m_Children:
   - {fileID: 1408143034}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1916809712
 MonoBehaviour:
@@ -911,7 +920,7 @@ Terrain:
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
+  m_HeightmapPixelError: 200
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_CastShadows: 1
@@ -943,5 +952,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

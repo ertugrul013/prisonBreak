@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 using Random = UnityEngine.Random;
 
 public class PassCalculate
@@ -44,7 +41,16 @@ public class PassCalculate
             switch (Passes[i].PassType)
             {
                 case HeightPass.Pass.PerlinBased:
-                    val = Mathf.PerlinNoise(WorldGeneration.instance._perlinSeed + x / Passes[i].detail,WorldGeneration.instance._perlinSeed + z / Passes[i].detail) * Passes[i].height;
+                    
+                    //val = Mathf.PerlinNoise(WorldGeneration.instance._perlinSeed + x / Passes[i].detail,WorldGeneration.instance._perlinSeed + z / Passes[i].detail) * Passes[i].height;
+                    var xCord = WorldGeneration.instance._perlinSeed + 
+                                x / (float) WorldGeneration.instance.worldSize * Passes[i].detail;
+
+                    var yCord = WorldGeneration.instance._perlinSeed +
+                                z / (float) WorldGeneration.instance.worldSize * Passes[i].detail;
+
+                    val = Mathf.PerlinNoise(xCord, yCord) * Passes[i].height;
+                    
                     HeightValua += val;
                     break;
                 case HeightPass.Pass.RandomBased:
@@ -59,7 +65,7 @@ public class PassCalculate
                     }
                     else
                     {
-                        Debug.Log("image not set to an instance the pass will fallback to randombased");
+                        Debug.LogError("image not set to an instance the pass will fallback to randombased");
                         val = Random.value * Passes[i].height;
                         HeightValua += val;
                     }

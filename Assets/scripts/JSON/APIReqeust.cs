@@ -1,41 +1,48 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections;
 using UnityEngine;
 using SimpleJSON;
+using UnityEditor.PackageManager;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// </summary>
 public class APIReqeust : MonoBehaviour
 {
-    [Range(5, 100)] public int AmountOfPictures;
-    public string URL = "http://shibe.online/api/shibes?count=&urls=true&httpsUrls=true";
-    public string[] ImageURL;
-    public List<Texture2D> Image;
-
-    WebClient _webClient = new WebClient();
-
-    private void Start()
+    public APIReqeust instance;
+    public InputField input;
+    private static string GetBaseUrl = "https://api.genderize.io/?name=";
+    public static bool isMale;
+    private void Awake()
     {
-        ImageURL = new string[AmountOfPictures];
-        
-        URL = URL.Insert(37, AmountOfPictures.ToString());
-        StartCoroutine(GetImages());
-    }
-
-    IEnumerator GetImages()
-    {
-        for (int i = 0; i < AmountOfPictures; i++)
+        if (instance == null)
         {
-            Texture2D tex;
-            tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
-            using (WWW www = new WWW(URL))
-            {
-                yield return www;
-                www.LoadImageIntoTexture(tex);
-                Image.Add(tex);
-            }
+            instance = this;
+            StartCoroutine(GETGender(GetBaseUrl));
         }
-
+        else
+        {
+            Destroy(this);
+        }
     }
+    private IEnumerator GETGender(string url)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            yield return webRequest.SendWebRequest();
+            
+            var json = JSON.Parse(webRequest.downloadHandler.text);
+            var gender = json["gender"];
+            isMale = false;
 
+            if (gender == "male")
+            {
+                isMale = true;
+                yield return isMale;
+            }
+
+            yield return isMale;
+        }
+    }
 }

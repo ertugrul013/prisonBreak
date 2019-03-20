@@ -43,10 +43,10 @@ public class PassCalculate
                 case HeightPass.Pass.PerlinBased:
                     
                     //val = Mathf.PerlinNoise(WorldGeneration.instance._perlinSeed + x / Passes[i].detail,WorldGeneration.instance._perlinSeed + z / Passes[i].detail) * Passes[i].height;
-                    var xCord = WorldGeneration.instance._perlinSeed + 
+                    var xCord = WorldGeneration.instance.perlinSeed + 
                                 x / (float) WorldGeneration.instance.worldSize * Passes[i].detail;
 
-                    var yCord = WorldGeneration.instance._perlinSeed +
+                    var yCord = WorldGeneration.instance. perlinSeed +
                                 z / (float) WorldGeneration.instance.worldSize * Passes[i].detail;
 
                     val = Mathf.PerlinNoise(xCord, yCord) * Passes[i].height;

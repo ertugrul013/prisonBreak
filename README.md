@@ -41,8 +41,8 @@ The different type of noise. Are used for creating different propeties of the te
 The noise generating part of the project is based on perlin noise.The main difference between perlin noise and random based noise is as follows. Random based noise has a value of 0 or 1 there is no in between. Perlin based noise on the other hand has a valau from 0 to 1. So it also 0.5 and 0.3 so on and so on.
 
 <p align="left">
-    <img src="ReadmePic/PerlinBased.png" width=300 title="Perlin based noise example">
-    <img src="ReadmePic/RandomBased.png" width=300 title="Random based noise example">
+    <img src="ReadmePic/PerlinBased.png" width=250 title="Perlin based noise example">
+    <img src="ReadmePic/RandomBased.png" width=**250g** title="Random based noise example">
 </p>
 
 When using Perlin noise in unity3D you need to assign a x and y cordinates to the perlin noise.
@@ -75,6 +75,9 @@ int a = Random.Valua;
 ```
 
 ## Item
-The Items are based on a abstract class called [item](google.com).
+The Items are based on a abstract class called [item](google.com). This class has the folowing propeties.
+
+  * Name
+  * Weight
 
 ## Inventory

@@ -512,6 +512,7 @@ MonoBehaviour:
     spawnMargin: 150
     raftPart: {fileID: 8458401932286815673, guid: 8aa7eb5d907f8d8468f8b4bd7869fe8b,
       type: 3}
+  minHeight: 8
   seed: 0
   perlinSeed: 0
   worldSize: 513
@@ -534,7 +535,7 @@ MonoBehaviour:
     height: 0.3
     PassType: 1
   - name: Image Pass
-    mapSprite: {fileID: 21300000, guid: ccfcc446f2d91fd978c7b1eb9b19ab57, type: 3}
+    mapSprite: {fileID: 21300000, guid: 5ab1ea830851f0613afc2829f010fd02, type: 3}
     detail: 1
     height: 0.3
     PassType: 2

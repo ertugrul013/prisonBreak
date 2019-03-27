@@ -4,10 +4,13 @@ using UnityEngine;
 public class WorldGeneration : MonoBehaviour
 {
 	public static WorldGeneration instance;
-	
+
 	public PassCalculate passCalculate;
 	public ObjectSpawning objectSpawning = new ObjectSpawning();
-	
+
+	public float minHeight;
+	//public SplatMapping splatMapping = new SplatMapping();
+
 	//the different type's of seed's
 	public int seed;
 	public float perlinSeed;
@@ -38,6 +41,7 @@ public class WorldGeneration : MonoBehaviour
 		mainTerrain.terrainData.size = new Vector3(worldSize,maxHeight,worldSize);
 		mainTerrain.terrainData.heightmapResolution = worldSize;
 		Generate();
+		//splatMapping.Paint();
 	}
 
 	private void Generate()
@@ -64,5 +68,5 @@ public class WorldGeneration : MonoBehaviour
 		}
 		perlinSeed = Random.Range(0f, 1000000f);
 	}
-	
+
 }

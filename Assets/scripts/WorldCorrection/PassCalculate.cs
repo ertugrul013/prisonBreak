@@ -76,7 +76,7 @@ public class PassCalculate
         return HeightValua;
     }
 
-    public float[,] GetNormilized()
+    public float[,]  GetNormilized()
     {
         float[,] normilized = new float[width,depth];
         for (int x = 0; x < width; x++)

@@ -16,7 +16,6 @@ public class ObjectSpawning
     [Header("Raft Spawn settings")] [Range(8, 20)] [SerializeField]
     private int AmountOfRaftParts;
 
-    public int spawnMargin;
     public GameObject raftPart;
 
     public void SpawnRaftItem()
@@ -29,12 +28,17 @@ public class ObjectSpawning
 
     Vector3 GetCord()
     {
-        var xCord = Random.Range(spawnMargin, WorldGeneration.instance.worldSize - spawnMargin);
-        var zCord = Random.Range(spawnMargin, WorldGeneration.instance.worldSize - spawnMargin);
-        //Gets the height of the terrain at the xCord and yCord
-        var yCord = WorldGeneration.instance.mainTerrain.terrainData.GetHeight(xCord, zCord);
-        ///spawning cordinate
-        //used for spawning the raftpart objects. 0.5f is used for the cubes and should be removed later on.
+        var xCord = 0;
+        var zCord = 0;
+        var yCord = 0f;
+
+        while (yCord < WorldGeneration.instance.minHeight)
+        {
+            xCord = Random.Range(0, WorldGeneration.instance.worldSize);
+            zCord = Random.Range(0, WorldGeneration.instance.worldSize);
+            yCord = WorldGeneration.instance.mainTerrain.terrainData.GetHeight(xCord, zCord);
+            
+        }
         return new Vector3(xCord,yCord + 0.5f,zCord);
     }
 } 

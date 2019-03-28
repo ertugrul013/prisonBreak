@@ -25,7 +25,7 @@ The texture is applied based on height and slope. The reason why is chose splatm
 The basics are as followed: splat mapping is a way of changing the alpha value of a texture and because all of the textures are stacked on top of each other it will transition to the next texture.In the end it combines all the textures and applies 1 texture to the terrain.
 
 for more detail information visit the [wiki](https://en.wikipedia.org/wiki/Texture_splatting)
-and also [this](http://www.gamasutra.com/blogs/AndreyMishkinis/20130716/196339/Advanced_Terrain_Texture_Splatting.php) link for the basics understanding in Unity3D.There is one problem the prevouis link is HLSL based scripting so you can't littarly copy paste the code but it is a good insperation source.
+and also [this](http://www.gamasutra.com/blogs/AndreyMishkinis/20130716/196339/Advanced_Terrain_Texture_Splatting.php) link for the basics understanding in Unity3D.There is one problem the prevouis link is HLSL based scripting so you can't litarlly copy paste the code but it is a good insperation source.
 
 For example this piece of code.
 
@@ -37,7 +37,7 @@ float3 blend(float4 texture1, float a1, float4 texture2, float a2)
 ```
 
 ### Noise Genaration
-The different type of noise. Are used for creating different propeties of the terrain.
+The different type of noise. Are used for creating different properties of the terrain.
 
 ### Perlin Noise
 The noise generating part of the project is based on perlin noise.The main difference between perlin noise and random based noise is as follows. Random based noise has a value of 0 or 1 there is no in between. Perlin based noise on the other hand has a valau from 0 to 1. So it also 0.5 and 0.3 so on and so on.
@@ -47,10 +47,10 @@ The noise generating part of the project is based on perlin noise.The main diffe
     <img src="ReadmePic/RandomBased.png" width=250 title="Random based noise example">
 </p>
 
-When using Perlin noise in unity3D you need to assign a x and y cordinates to the perlin noise.
-These x and y cordinates are used to pick a place in the perlin noise range of numbers. After that you can use it for different use cases.
+When using Perlin noise in unity3D you need to assign a x and y coordinates to the perlin noise.
+These x and y coordinates are used to pick a place in the perlin noise range of numbers. After that you can use it for different use cases.
 
-Mathf.PerlinNoise returns a float. A int should only be used if you need whole numebers otherwise you should use float that gives more flexibility.
+Mathf.PerlinNoise returns a float. A int should only be used if you need whole numbers otherwise you should use float that gives more flexibility.
 
 ```c#
 float noise = Mathf.PerlinNoise(xcord,ycord);

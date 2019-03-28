@@ -9,7 +9,6 @@ public class WorldGeneration : MonoBehaviour
 	public ObjectSpawning objectSpawning = new ObjectSpawning();
 
 	public float minHeight;
-	//public SplatMapping splatMapping = new SplatMapping();
 
 	//the different type's of seed's
 	public int seed;
@@ -18,7 +17,7 @@ public class WorldGeneration : MonoBehaviour
 	public int worldSize = 513;
 	public int maxHeight = 600;
 	public Terrain mainTerrain;
-	
+
 	public List<HeightPass> Passes = new List<HeightPass>();
 
 
@@ -41,7 +40,6 @@ public class WorldGeneration : MonoBehaviour
 		mainTerrain.terrainData.size = new Vector3(worldSize,maxHeight,worldSize);
 		mainTerrain.terrainData.heightmapResolution = worldSize;
 		Generate();
-		//splatMapping.Paint();
 	}
 
 	private void Generate()

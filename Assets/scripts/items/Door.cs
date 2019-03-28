@@ -8,7 +8,7 @@ public class Door : MonoBehaviour, IInteractable
     public int doorId;
     public bool isOpen;
     private float initRotation;
-   
+
     private void Start()
     {
         initRotation = transform.rotation.eulerAngles.y;
@@ -16,7 +16,7 @@ public class Door : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (isOpen && transform.rotation.eulerAngles.y < initRotation + 80) 
+        if (isOpen && transform.rotation.eulerAngles.y < initRotation + 80)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0,initRotation + 80,0),5 );
         }else if (!isOpen && transform.rotation.eulerAngles.y > initRotation)
@@ -29,7 +29,14 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (doorId == -1 || Inventory.instance.checkKey(doorId))
         {
+          Debug.Log("HERE");
+          if (APIReqeust.isMale)
+          {
+            Debug.Log("gender is male so good");
             isOpen = !isOpen;
+            return;
+          }
+          Debug.Log("Gender is not male WTF ARE YOU");
         }
     }
 

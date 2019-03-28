@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 
 public class Inventory : MonoBehaviour
 {
-	//instance 
+	//instance
 	public static Inventory instance;
 	public static int amountOfRaftItems;
 	public List<Item> _items = new List<Item>();
@@ -18,11 +18,9 @@ public class Inventory : MonoBehaviour
 	{
 		if (instance == null)
 		{
-			
 			Debug.Log(_items.Count);
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
-		
 		}
 		else
 		{
@@ -30,7 +28,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	public bool AddItem(Item item)	
+	public bool AddItem(Item item)
 	{
 		Debug.Log(item);
 		//if the total weight is lower than max weight continue
@@ -43,7 +41,7 @@ public class Inventory : MonoBehaviour
 		_totalWeight += item.Weight;
 		return true;
 	}
-	
+
 	/// <summary>
 	/// removes item's from the inventory.
 	/// only if removing is successful than the weight will decrease
@@ -54,9 +52,8 @@ public class Inventory : MonoBehaviour
 		if (_items.Remove(item))
 		{
 			_totalWeight -= item.Weight;
-		}	
+		}
 	}
-
 	public bool checkKey(int _id)
 	{
 		for (int i = 0; i < _items.Count; i++)

@@ -509,10 +509,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectSpawning:
     AmountOfRaftParts: 20
-    spawnMargin: 150
     raftPart: {fileID: 8458401932286815673, guid: 8aa7eb5d907f8d8468f8b4bd7869fe8b,
       type: 3}
-  minHeight: 8
+  minHeight: 20
   seed: 0
   perlinSeed: 0
   worldSize: 513

@@ -25,13 +25,17 @@ public class ObjectSpawning
             MonoBehaviour.Instantiate(raftPart, GetCord(), Quaternion.identity);
         }
     }
-
+    
+    /// <summary>
+    /// Gets a random location on the map with the desired minimal height.
+    /// </summary>
+    /// <returns>vector3 with the desired minHeight</returns>
     Vector3 GetCord()
     {
         var xCord = 0;
         var zCord = 0;
         var yCord = 0f;
-
+        
         while (yCord < WorldGeneration.instance.minHeight)
         {
             xCord = Random.Range(0, WorldGeneration.instance.worldSize);

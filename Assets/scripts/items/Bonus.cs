@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Bonus : Pickup
 {
-
     public int points;
 
     protected override Item CreateItem()
     {
-        return new BonusItem(name,weight,points);
+        return new BonusItem(name,image,weight,points);
     }
 }

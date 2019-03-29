@@ -7,7 +7,7 @@ public class RaftPart : Pickup
 
     protected override Item CreateItem()
     {
-        return new RaftPartItem(name,weight,Credit,Part);
+        return new RaftPartItem(name,image,weight,Credit,Part);
     }
 
     private void Awake()

@@ -8,6 +8,6 @@ public class Acces : Pickup
 
     protected override Item CreateItem()
     {
-        return new AccesItem(name,weight,door);
+        return new AccesItem(name,image,weight,door);
     }
 }

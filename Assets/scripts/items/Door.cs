@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
-
     public int doorId;
     public bool isOpen;
     private float initRotation;
+    public string messageDoor;
 
     private void Start()
     {
@@ -29,14 +29,12 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (doorId == -1 || Inventory.instance.checkKey(doorId))
         {
-          Debug.Log("HERE");
           if (APIReqeust.isMale)
           {
-            Debug.Log("gender is male so good");
             isOpen = !isOpen;
             return;
           }
-          Debug.Log("Gender is not male WTF ARE YOU");
+
         }
     }
 

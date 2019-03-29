@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AccesItem : Item
 {
-
     public int id;
 
-    public AccesItem(string objName, int Weight, int id) : base(objName, Weight)
+    public AccesItem(string objName,Image objImage ,int Weight, int id) : base(objName,objImage ,Weight)
     {
         this.id = id;
     }

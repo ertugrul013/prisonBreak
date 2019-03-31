@@ -69,7 +69,7 @@ Low frequency noise is being used for taking care of the main genaration pass. F
 ****
 
 ### Random based noise
-This type of "noise" is used by me for making the terrain in it whole al little bit more bumpy and on even. I found while making the script in class that it could use a bit more randomnis to the terrain.Random based noise is very useful if you want to add a more detail to for example above a certain height line.
+This type of "noise" is used by me for making the terrain in it whole all little bit more bumpy and on even. I found while making the script in class that it could use a bit more randomness to the terrain.Random based noise is very useful if you want to add a more detail to for example above a certain height line.
 
 > Random.Valua returns a random number with the max limit being int.Max
 
@@ -78,7 +78,7 @@ int a = Random.Valua;
 ```
 
 ## Item
-The Items are based on a abstract class called [item](google.com). This class has the folowing propeties.
+The Items are based on a abstract class called [item](google.com). This class has the following properties.
 
   * Name
   * Weight

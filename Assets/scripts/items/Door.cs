@@ -29,12 +29,11 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (doorId == -1 || Inventory.instance.checkKey(doorId))
         {
-          if (APIReqeust.isMale)
+          if (APIReqeust.instance.GetGender(UIManeger.instance.input))
           {
             isOpen = !isOpen;
             return;
           }
-
         }
     }
 

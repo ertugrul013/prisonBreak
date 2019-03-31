@@ -8,7 +8,7 @@ public class BonusItem : Item
 
     public int points;
 
-    public BonusItem(string objName,Image objImage, int Weight, int points) : base(objName,objImage,Weight)
+    public BonusItem(string objName,Sprite objImage, int Weight, int points) : base(objName,objImage,Weight)
     {
         this.points = points;
     }

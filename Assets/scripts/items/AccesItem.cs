@@ -7,7 +7,7 @@ public class AccesItem : Item
 {
     public int id;
 
-    public AccesItem(string objName,Image objImage ,int Weight, int id) : base(objName,objImage ,Weight)
+    public AccesItem(string objName,Sprite objImage ,int Weight, int id) : base(objName,objImage ,Weight)
     {
         this.id = id;
     }

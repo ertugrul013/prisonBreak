@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+using UnityEngine;
 
 /// <summary>
 /// Co-Producer:
@@ -15,7 +15,7 @@ public class RaftPartItem : Item
 
        public TypeOfPart Part;
        public string credit;
-       public RaftPartItem(string objName, int Weight,string credit, TypeOfPart typeOfPart) : base(objName, Weight)
+       public RaftPartItem(string objName,Sprite objImage, int Weight,string credit, TypeOfPart typeOfPart) : base(objName,objImage, Weight)
        {
            this.credit = credit;
            this.Part = typeOfPart;

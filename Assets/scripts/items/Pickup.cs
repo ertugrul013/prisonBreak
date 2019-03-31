@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Pickup : MonoBehaviour, IInteractable
 {
-	public Image image;
+	public Sprite image;
 	public string name;
 	public int weight;
 

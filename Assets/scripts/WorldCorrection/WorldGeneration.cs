@@ -6,8 +6,8 @@ public class WorldGeneration : MonoBehaviour
 	public static WorldGeneration instance;
 
 	public PassCalculate passCalculate;
-	public ObjectSpawning objectSpawning = new ObjectSpawning();
 
+	[Header("World Generation main settings.")]
 	public float minHeight;
 
 	//the different type's of seed's
@@ -19,6 +19,11 @@ public class WorldGeneration : MonoBehaviour
 	public Terrain mainTerrain;
 
 	public List<HeightPass> Passes = new List<HeightPass>();
+	[Space]
+
+	[Header("Object spawning settings.")]
+	public ObjectSpawning objectSpawning = new ObjectSpawning();
+
 
 
 	private void Awake()

@@ -9,24 +9,31 @@ using UnityEngine.UI;
 /// </summary>
 public class APIReqeust : MonoBehaviour
 {
-    public APIReqeust instance;
-    public string inputName;
+    public static APIReqeust instance;
     private static string GetBaseUrl = "https://api.genderize.io/?name=";
-    public static bool isMale;
+		private bool isMale;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            StartCoroutine(GETGender(GetBaseUrl + inputName));
         }
         else
         {
             Destroy(this);
         }
     }
-    private IEnumerator GETGender(string url)
+
+    public bool GetGender(string name)
+    {
+      string url = GetBaseUrl + name;
+    	StartCoroutine(JsonReqeust(url));
+      return isMale;
+    }
+
+    private IEnumerator JsonReqeust(string url)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
         {
@@ -37,11 +44,8 @@ public class APIReqeust : MonoBehaviour
 
             if (gender == "male")
             {
-                isMale = true;
-                yield return isMale;
+              isMale = true;
             }
-
-            yield return isMale;
         }
     }
 }

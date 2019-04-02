@@ -13,12 +13,15 @@ public class UIManeger : MonoBehaviour
 
   //playerInput
   public InputField nameInput;
-	public string input = "Anne";
+	public string input = "tom";
 
   public Text Doortext;
 
-  public string[] inventoryText = new string[3];
-  public Sprite[] inventoryImages = new Sprite[3];
+  private string[] inventoryText = new string[3];
+  private Sprite[] inventoryImages = new Sprite[3];
+
+	public Image[] UIImages = new Image[3];
+	public Text[] UIText = new Text[3];
 
 
   void Awake()
@@ -34,30 +37,20 @@ public class UIManeger : MonoBehaviour
     }
   }
 
-  public void updateUI()
+  public void updateUI(Item item, int cur)
   {
-		if (Inventory.instance._items.Count == null)
-		{
-				return;
-		}
-		else
-		{
-    		for (int i = 0; i < Inventory.instance._items.Count; i++)
-    		{
-        		inventoryText[i] = Inventory.instance._items[i].objName;
-						inventoryImages[i] = Inventory.instance._items[i].objImage;
-    		}
-			}
+			UIText[cur - 1].text = item.objName;
+			UIImages[cur - 1].sprite = item.objImage;
   }
 
 	public void showUI()
 	{
-		LeanTween.moveY(parentUITranbsfrom,300f,0.5f);
+		LeanTween.moveY(parentUITranbsfrom,205f,0.5f);
 	}
 
 	public void hideUI()
 	{
-		LeanTween.moveY(parentUITranbsfrom,370f,0.5f);
+		LeanTween.moveY(parentUITranbsfrom,400f,0.5f);
 	}
 
 	public void startGame()

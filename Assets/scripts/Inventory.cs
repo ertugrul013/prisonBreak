@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Inventory : MonoBehaviour
 {
@@ -30,7 +29,6 @@ public class Inventory : MonoBehaviour
 
 	public bool AddItem(Item item)
 	{
-		Debug.Log(currentAmountOfItems);
 		//if the total weight is lower than max weight continue
 		if(_totalWeight + item.Weight > maxWeight)
 		{
@@ -55,6 +53,7 @@ public class Inventory : MonoBehaviour
 			_totalWeight -= item.Weight;
 		}
 	}
+
 	public bool checkKey(int _id)
 	{
 		for (int i = 0; i < _items.Count; i++)

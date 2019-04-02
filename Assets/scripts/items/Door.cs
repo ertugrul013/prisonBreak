@@ -6,45 +6,45 @@ public class Door : MonoBehaviour, IInteractable
 {
     public int doorId;
     public bool isOpen;
-    private float initRotation;
     public string messageDoor;
-		public AudioSource openingDoorSound;
+	public AudioSource openingDoorSound;
 
-		private BoxCollider _collider;
+	private BoxCollider _collider;
 
-		[SerializeField] private Animator doorAnim;
+    [SerializeField] private Animator doorAnim;
 
     private void Start()
     {
-        initRotation = transform.rotation.eulerAngles.y;
-				_collider = this.GetComponent<BoxCollider>();
+		_collider = this.GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
         if (isOpen)
-				{
-					doorAnim.SetBool("Open",true);
-					//openingDoorSound.Play();
-					_collider.enabled = false;
+		{
+			doorAnim.SetBool("Open",true);
+			//openingDoorSound.Play();
+			_collider.enabled = false;
+            UIManeger.instance.statustext.text = "Find parts to build your raft";
         }
-				else if (!isOpen)
-				{
-					doorAnim.SetBool("Open",false);
-					//openingDoorSound.Play();
-					_collider.enabled = true;
-				}
+		else if (!isOpen)
+		{
+			doorAnim.SetBool("Open",false);
+			//openingDoorSound.Play();
+			_collider.enabled = true;
+		}
     }
 
     public void open()
     {
         if (doorId == -1 || Inventory.instance.checkKey(doorId))
         {
-          if (APIReqeust.instance.GetGender(UIManeger.instance.input))
+          if (APIReqeust.instance.GetGender(PlayerPrefs.GetString("name")))
           {
             isOpen = !isOpen;
             return;
           }
+          Debug.LogError("You have a female name so no fun for you");
         }
     }
 

@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class ObjectSpawning
 {
-    
+
     [Header("Raft Spawn settings")] [Range(8, 20)] [SerializeField]
     private int AmountOfRaftParts;
 
@@ -25,7 +25,7 @@ public class ObjectSpawning
             MonoBehaviour.Instantiate(raftPart, GetCord(), Quaternion.identity);
         }
     }
-    
+
     /// <summary>
     /// Gets a random location on the map with the desired minimal height.
     /// </summary>
@@ -35,14 +35,14 @@ public class ObjectSpawning
         var xCord = 0;
         var zCord = 0;
         var yCord = 0f;
-        
+
         while (yCord < WorldGeneration.instance.minHeight)
         {
             xCord = Random.Range(0, WorldGeneration.instance.worldSize);
             zCord = Random.Range(0, WorldGeneration.instance.worldSize);
             yCord = WorldGeneration.instance.mainTerrain.terrainData.GetHeight(xCord, zCord);
-            
+
         }
-        return new Vector3(xCord,yCord + 0.5f,zCord);
+        return new Vector3(xCord,yCord+0.3f,zCord);
     }
-} 
+}

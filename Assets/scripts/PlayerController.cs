@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] [Range(1, 3)] private float _range = 2f;
+    [SerializeField] [Range(1, 6)] private float _range = 2f;
 
     private void Update()
     {
@@ -38,11 +38,17 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray,out hit,_range))
         {
             IInteractable i = hit.transform.gameObject.GetComponent<IInteractable>();
-
             if (i != null)
             {
                 i.Action();
             }
+            else
+            {
+                escapeRaft e = hit.transform.gameObject.GetComponent<escapeRaft>();
+
+                e.UpdateRaftStatus();
+            }
+
         }
 
     }

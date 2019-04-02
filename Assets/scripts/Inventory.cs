@@ -13,12 +13,12 @@ public class Inventory : MonoBehaviour
 	public List<Item> _items = new List<Item>();
 	public int maxWeight = 10;
 	private int _totalWeight;
+	private int currentAmountOfItems = 0;
 
 	private void Awake()
 	{
 		if (instance == null)
 		{
-			Debug.Log(_items.Count);
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
 		}
@@ -30,15 +30,16 @@ public class Inventory : MonoBehaviour
 
 	public bool AddItem(Item item)
 	{
-		Debug.Log(item);
+		Debug.Log(currentAmountOfItems);
 		//if the total weight is lower than max weight continue
 		if(_totalWeight + item.Weight > maxWeight)
 		{
 			return false;
 		}
-		Debug.Log(item);
 		_items.Add(item);
 		_totalWeight += item.Weight;
+		currentAmountOfItems++;
+		UIManeger.instance.updateUI(item,currentAmountOfItems);
 		return true;
 	}
 

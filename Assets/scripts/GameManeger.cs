@@ -17,7 +17,6 @@ public class GameManeger : MonoBehaviour
 		{
 			Destroy(this);
 		}
-		UIManeger.instance.updateUI();
 	}
 
 	private void Start()

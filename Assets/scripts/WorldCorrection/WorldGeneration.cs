@@ -24,8 +24,6 @@ public class WorldGeneration : MonoBehaviour
 	[Header("Object spawning settings.")]
 	public ObjectSpawning objectSpawning = new ObjectSpawning();
 
-
-
 	private void Awake()
 	{
 		if (instance == null)

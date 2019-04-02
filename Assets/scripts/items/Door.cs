@@ -8,21 +8,32 @@ public class Door : MonoBehaviour, IInteractable
     public bool isOpen;
     private float initRotation;
     public string messageDoor;
+		public AudioSource openingDoorSound;
+
+		private BoxCollider _collider;
+
+		[SerializeField] private Animator doorAnim;
 
     private void Start()
     {
         initRotation = transform.rotation.eulerAngles.y;
+				_collider = this.GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
-        if (isOpen && transform.rotation.eulerAngles.y < initRotation + 80)
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0,initRotation + 80,0),5 );
-        }else if (!isOpen && transform.rotation.eulerAngles.y > initRotation)
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(0,initRotation,0),5 );
+        if (isOpen)
+				{
+					doorAnim.SetBool("Open",true);
+					//openingDoorSound.Play();
+					_collider.enabled = false;
         }
+				else if (!isOpen)
+				{
+					doorAnim.SetBool("Open",false);
+					//openingDoorSound.Play();
+					_collider.enabled = true;
+				}
     }
 
     public void open()

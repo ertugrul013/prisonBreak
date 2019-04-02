@@ -41,7 +41,6 @@ public class APIReqeust : MonoBehaviour
             var json = JSON.Parse(webRequest.downloadHandler.text);
             var gender = json["gender"];
             isMale = false;
-
             if (gender == "male")
             {
               isMale = true;
